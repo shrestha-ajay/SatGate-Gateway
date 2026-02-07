@@ -4,40 +4,39 @@ SatGate is an interactive simulator for the **L402 protocol**, enabling autonomo
 
 ## 🚀 How to Deploy to GitHub Pages
 
-### 📂 Why use the "Root" (/) folder?
-GitHub Pages requires an `index.html` to serve as the entry point for your site. In this project, `index.html` is located in the **project root**. 
+Because this project uses **TypeScript and React (.tsx)**, it must be "built" into browser-compatible JavaScript before it can work on GitHub Pages.
 
-**Important:** You do **NOT** need to point GitHub to the `/components` folder. The browser resolves all imports (like components and services) relative to the location of `index.html`. As long as you select `/(root)` in settings, the browser will find all sub-folders correctly.
-
-### 1. Push to GitHub
-Create a new repository on GitHub and run these commands in your project folder:
-
+### 1. Setup on your computer
+You need **Node.js** installed. Clone your repository and run:
 ```bash
-git init
-git add .
-git commit -m "Initial commit: SatGate L402 Simulator"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git push -u origin main
+npm install
 ```
 
-### 2. Enable GitHub Pages
-1. Go to your repository on **GitHub.com**.
-2. Click on the **Settings** tab.
-3. In the left sidebar, click on **Pages**.
-4. Under **Build and deployment > Branch**:
-   - Select `main` as the branch.
-   - Select `/(root)` as the folder.
-5. Click **Save**.
+### 2. Configure the Base Path
+Open `vite.config.ts` and ensure the `base` property matches your repository name:
+```ts
+base: '/SatGate-Gateway/',
+```
 
-### 💡 Technical Note
-This project uses **Native ES Modules**. While the simulator works directly in modern browsers via the `importmap` in `index.html`, professional deployments often use a build tool like **Vite** to optimize the code for production. For a hackathon, the current structure is perfect for a quick, live "No-Build" demo.
+### 3. Deploy
+Run the following command. It will build the project and push the "ready-to-run" code to a new branch called `gh-pages`:
+```bash
+npm run deploy
+```
+
+### 4. Enable the Site on GitHub
+1. Go to your repository on **GitHub.com**.
+2. Click on **Settings** > **Pages**.
+3. Under **Build and deployment > Branch**, select **`gh-pages`** (it will appear after you run step 3) and the `/ (root)` folder.
+4. Click **Save**.
+
+Your site will be live at `https://shrestha-ajay.github.io/SatGate-Gateway/` shortly!
 
 ## 🛠 Features
-- **Interactive Pitch Deck**: A built-in presentation mode to explain L402 to stakeholders.
-- **L402 Simulation**: Full visual breakdown of the 402 Payment Required handshake.
-- **Gemini Intelligence**: AI-powered reasoning for payment authorization and data analysis.
-- **Lightning Wallet**: A simulated wallet to track "Sats" balances and invoice payments.
+- **Interactive Pitch Deck**: A built-in presentation mode.
+- **L402 Simulation**: Full visual breakdown of the 402 handshake.
+- **Gemini Intelligence**: AI reasoning for payment authorization.
+- **Lightning Wallet**: Simulated wallet for tracking Sats.
 
 ---
 *Built for the Agentic Web.*
