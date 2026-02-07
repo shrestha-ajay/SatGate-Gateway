@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { LogEntry, LogSource, AgentState, Invoice } from './types';
 import { ICONS, INITIAL_BALANCE, API_COST, SECRET_DATA } from './constants';
 import ConsoleLog from './components/ConsoleLog';
