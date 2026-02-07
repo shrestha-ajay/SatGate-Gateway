@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ICONS } from '../constants';
 
@@ -20,7 +19,14 @@ const slides: Slide[] = [
           As AI agents become autonomous, they need a native way to pay for APIs and data. 
           Credit cards are for humans. <span className="text-orange-500 font-bold">Sats are for agents.</span>
         </p>
-        <div className="flex justify-center gap-8 pt-8">
+        
+        <div className="py-6 border-y border-white/5 my-4">
+          <div className="text-white font-bold text-lg">Presented by Ajay Shrestha</div>
+          <div className="text-orange-500 text-sm font-bold tracking-widest uppercase mt-1">Yale School of Management • MBA 2026</div>
+          <div className="text-gray-500 text-[10px] uppercase tracking-[0.3em] mt-2">Yale x Google Hackathon 2025</div>
+        </div>
+
+        <div className="flex justify-center gap-8 pt-4">
           <div className="flex flex-col items-center gap-2">
             <div className="p-4 bg-orange-500/10 rounded-full text-orange-500"><ICONS.Zap /></div>
             <span className="text-xs font-bold tracking-widest uppercase">Lightning</span>

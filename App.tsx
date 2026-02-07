@@ -116,11 +116,16 @@ const App: React.FC = () => {
       
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-6">
-        <div>
-          <h1 className="text-4xl font-black tracking-tighter text-white flex items-center gap-2">
-            <span className="text-orange-500"><ICONS.Zap /></span> SatGate <span className="text-sm font-normal text-gray-500 tracking-normal border border-white/10 px-2 py-1 rounded ml-2">L402 Protocol v1.0</span>
-          </h1>
-          <p className="text-gray-400 mt-1">Autonomous Agent-to-Agent Payment Gateway Simulator</p>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-3 mb-1">
+            <h1 className="text-4xl font-black tracking-tighter text-white flex items-center gap-2">
+              <span className="text-orange-500"><ICONS.Zap /></span> SatGate
+            </h1>
+            <div className="px-2 py-0.5 bg-blue-500/10 border border-blue-500/30 rounded text-[10px] text-blue-400 font-bold uppercase tracking-widest">
+              Yale School of Management
+            </div>
+          </div>
+          <p className="text-gray-400 text-sm">Autonomous Agent-to-Agent Payment Gateway Simulator • <span className="text-white font-medium">Ajay Shrestha</span></p>
         </div>
         
         <div className="flex gap-4 items-center">
@@ -286,7 +291,7 @@ const App: React.FC = () => {
 
       {/* Footer Info */}
       <footer className="text-center text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mt-auto pt-6 border-t border-white/5">
-        L402 Protocol Specification: Macaroons + LSAT + Lightning • SatGate Open Infrastructure
+        L402 Protocol Specification: Macaroons + LSAT + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club - Hackathon 2026
       </footer>
     </div>
   );
