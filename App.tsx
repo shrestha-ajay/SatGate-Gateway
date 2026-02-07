@@ -122,7 +122,7 @@ const App: React.FC = () => {
               <span className="text-orange-500"><ICONS.Zap /></span> SatGate
             </h1>
             <div className="px-2 py-0.5 bg-blue-500/10 border border-blue-500/30 rounded text-[10px] text-blue-400 font-bold uppercase tracking-widest">
-              Yale SOM Demo
+              Yale - Build on Bitcoin Hackathon Demo
             </div>
           </div>
           <p className="text-gray-400 text-sm italic">"Monetizing the Agentic Web" • <span className="text-white font-medium">Ajay Shrestha (MBA '26)</span></p>
@@ -223,7 +223,7 @@ const App: React.FC = () => {
                 {geminiAnalysis && (
                   <div className="space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-500 p-4 bg-white/[0.03] rounded-lg border border-white/5">
                     <div className="text-[10px] uppercase font-bold text-blue-400 tracking-widest flex items-center gap-2">
-                      <ICONS.Cpu /> Gemini Analysis
+                      <ICONS.Cpu /> Agent Analysis
                     </div>
                     <div className="text-sm italic leading-relaxed text-gray-300">
                       "{geminiAnalysis}"
