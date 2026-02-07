@@ -4,10 +4,13 @@ SatGate is an interactive simulator for the **L402 protocol**, enabling autonomo
 
 ## 🚀 How to Deploy to GitHub Pages
 
-Since this project uses modern ES Modules and a flat file structure, it is perfectly suited for GitHub Pages.
+### 📂 Why use the "Root" (/) folder?
+GitHub Pages requires an `index.html` to serve as the entry point for your site. In this project, `index.html` is located in the **project root**. 
+
+**Important:** You do **NOT** need to point GitHub to the `/components` folder. The browser resolves all imports (like components and services) relative to the location of `index.html`. As long as you select `/(root)` in settings, the browser will find all sub-folders correctly.
 
 ### 1. Push to GitHub
-If you haven't already, create a new repository on GitHub and run these commands in your project folder:
+Create a new repository on GitHub and run these commands in your project folder:
 
 ```bash
 git init
@@ -22,19 +25,19 @@ git push -u origin main
 1. Go to your repository on **GitHub.com**.
 2. Click on the **Settings** tab.
 3. In the left sidebar, click on **Pages**.
-4. Under **Build and deployment > Branch**, select `main` and the `/ (root)` folder.
+4. Under **Build and deployment > Branch**:
+   - Select `main` as the branch.
+   - Select `/(root)` as the folder.
 5. Click **Save**.
 
-Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/` within a few minutes!
+### 💡 Technical Note
+This project uses **Native ES Modules**. While the simulator works directly in modern browsers via the `importmap` in `index.html`, professional deployments often use a build tool like **Vite** to optimize the code for production. For a hackathon, the current structure is perfect for a quick, live "No-Build" demo.
 
 ## 🛠 Features
 - **Interactive Pitch Deck**: A built-in presentation mode to explain L402 to stakeholders.
 - **L402 Simulation**: Full visual breakdown of the 402 Payment Required handshake.
 - **Gemini Intelligence**: AI-powered reasoning for payment authorization and data analysis.
 - **Lightning Wallet**: A simulated wallet to track "Sats" balances and invoice payments.
-
-## 🔑 Note on API Keys
-This application uses the **Gemini API**. In this specific environment (AI Studio), the API key is handled automatically. If you are running this elsewhere or on a public GitHub Pages link, you will need to ensure the `process.env.API_KEY` is accessible or modify `services/geminiService.ts` to handle your key securely.
 
 ---
 *Built for the Agentic Web.*
