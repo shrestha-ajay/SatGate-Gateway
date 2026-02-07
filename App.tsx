@@ -291,7 +291,7 @@ const App: React.FC = () => {
 
       {/* Footer Info */}
       <footer className="text-center text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mt-auto pt-6 border-t border-white/5">
-        L402 Protocol Specification: Macaroons + LSAT + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club - Hackathon 2025
+        L402 Protocol Specification: Macaroons + LSAT + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club - Hackathon 2026
       </footer>
     </div>
   );
