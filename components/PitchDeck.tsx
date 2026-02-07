@@ -128,28 +128,6 @@ const slides: Slide[] = [
         </div>
       </div>
     )
-  },
-  {
-    title: "Why Gemini?",
-    subtitle: "The Brain in the Machine",
-    icon: <ICONS.Cpu />,
-    content: (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-            <h4 className="font-bold text-white mb-2">Cost Analysis</h4>
-            <p className="text-sm text-gray-400">Gemini evaluates the value of data vs. the cost in sats before authorizing a payment.</p>
-          </div>
-          <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-            <h4 className="font-bold text-white mb-2">Data Distillation</h4>
-            <p className="text-sm text-gray-400">Post-payment, the model extracts high-signal insights from the raw premium payload.</p>
-          </div>
-        </div>
-        <div className="p-4 text-center bg-blue-500/10 border border-blue-500/20 rounded-lg italic text-blue-300">
-          "Autonomous agents are only as good as the information they can afford."
-        </div>
-      </div>
-    )
   }
 ];
 
