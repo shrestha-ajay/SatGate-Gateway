@@ -222,7 +222,7 @@ const App: React.FC = () => {
                 </div>
                 {geminiAnalysis && (
                   <div className="space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
-                    <div className="text-[10px] uppercase font-bold text-gray-500">Agent Analysis (Gemini-3-Flash)</div>
+                    <div className="text-[10px] uppercase font-bold text-gray-500">Agent Analysis</div>
                     <div className="text-sm italic leading-relaxed text-gray-300">
                       "{geminiAnalysis}"
                     </div>
