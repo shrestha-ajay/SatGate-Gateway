@@ -23,7 +23,7 @@ const slides: Slide[] = [
         <div className="py-6 border-y border-white/5 my-4">
           <div className="text-white font-bold text-lg">Presented by Ajay Shrestha</div>
           <div className="text-orange-500 text-sm font-bold tracking-widest uppercase mt-1">Yale School of Management • MBA 2026</div>
-          <div className="text-gray-500 text-[10px] uppercase tracking-[0.3em] mt-2">Yale x Google Hackathon 2025</div>
+          <div className="text-gray-500 text-[10px] uppercase tracking-[0.3em] mt-2">Build on Bitcoin - Yale Blockchain Club Hackathon 2026</div>
         </div>
 
         <div className="flex justify-center gap-8 pt-4">
