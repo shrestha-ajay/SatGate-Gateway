@@ -122,10 +122,10 @@ const App: React.FC = () => {
               <span className="text-orange-500"><ICONS.Zap /></span> SatGate
             </h1>
             <div className="px-2 py-0.5 bg-blue-500/10 border border-blue-500/30 rounded text-[10px] text-blue-400 font-bold uppercase tracking-widest">
-              Yale School of Management
+              Yale SOM Demo
             </div>
           </div>
-          <p className="text-gray-400 text-sm">Autonomous Agent-to-Agent Payment Gateway Simulator • <span className="text-white font-medium">Ajay Shrestha</span></p>
+          <p className="text-gray-400 text-sm italic">"Monetizing the Agentic Web" • <span className="text-white font-medium">Ajay Shrestha (MBA '26)</span></p>
         </div>
         
         <div className="flex gap-4 items-center">
@@ -133,11 +133,11 @@ const App: React.FC = () => {
             onClick={() => setIsPitchMode(true)}
             className="px-4 py-2 hover:bg-orange-500/10 border border-orange-500/30 text-orange-500 rounded-lg transition-colors text-xs font-bold uppercase tracking-widest"
           >
-            Show Pitch
+            Open Deck
           </button>
-          <div className="bg-[#111] border border-white/10 rounded-lg p-3 flex items-center gap-4">
+          <div className="bg-[#111] border border-white/10 rounded-lg p-3 flex items-center gap-4 shadow-xl">
             <div className="text-right">
-              <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Agent Wallet Balance</div>
+              <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Agent Wallet</div>
               <div className="text-xl font-bold text-orange-400 mono">{agentState.balance} SATS</div>
             </div>
             <div className="p-2 bg-orange-500/10 text-orange-500 rounded">
@@ -177,7 +177,7 @@ const App: React.FC = () => {
               ].map((step) => (
                 <div key={step.id} className={`flex gap-4 p-3 rounded-lg transition-all border ${
                   activeStep === step.id 
-                    ? 'bg-blue-500/20 border-blue-500/50 scale-[1.02]' 
+                    ? 'bg-blue-500/20 border-blue-500/50 scale-[1.02] shadow-lg shadow-blue-500/10' 
                     : activeStep > step.id ? 'bg-green-500/10 border-green-500/20 opacity-60' : 'border-transparent opacity-40'
                 }`}>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
@@ -199,30 +199,32 @@ const App: React.FC = () => {
               className={`w-full mt-6 py-4 rounded-lg font-black text-lg uppercase tracking-wider shadow-lg transition-all ${
                 agentState.isProcessing 
                   ? 'bg-gray-800 text-gray-500 cursor-not-allowed' 
-                  : 'bg-orange-600 hover:bg-orange-500 text-white active:scale-95'
+                  : 'bg-orange-600 hover:bg-orange-500 text-white active:scale-95 shadow-orange-500/20'
               }`}
             >
-              {agentState.isProcessing ? 'Agent Working...' : 'Trigger AI Agent'}
+              {agentState.isProcessing ? 'Agent Working...' : 'Run L402 Flow'}
             </button>
           </div>
 
           {/* Unlocked Content Card */}
           <div className={`flex-1 p-6 rounded-xl border transition-all duration-700 ${
-            agentState.hasAccess ? 'bg-green-500/5 border-green-500/30' : 'bg-black/20 border-white/5'
+            agentState.hasAccess ? 'bg-green-500/5 border-green-500/30 shadow-lg shadow-green-500/5' : 'bg-black/20 border-white/5'
           }`}>
              <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
               {agentState.hasAccess ? <ICONS.Unlock /> : <ICONS.Lock />} 
-              {agentState.hasAccess ? "Premium Data Unlocked" : "Protected Resource"}
+              {agentState.hasAccess ? "Premium Payload" : "L402 Protected Resource"}
             </h2>
             
             {agentState.hasAccess ? (
               <div className="space-y-4">
-                <div className="p-3 bg-black/50 border border-green-500/20 rounded font-mono text-xs text-green-400">
+                <div className="p-3 bg-black/50 border border-green-500/20 rounded font-mono text-xs text-green-400 break-all leading-relaxed">
                   {agentState.unlockedData}
                 </div>
                 {geminiAnalysis && (
-                  <div className="space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
-                    <div className="text-[10px] uppercase font-bold text-gray-500">Agent Analysis</div>
+                  <div className="space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-500 p-4 bg-white/[0.03] rounded-lg border border-white/5">
+                    <div className="text-[10px] uppercase font-bold text-blue-400 tracking-widest flex items-center gap-2">
+                      <ICONS.Cpu /> Gemini Analysis
+                    </div>
                     <div className="text-sm italic leading-relaxed text-gray-300">
                       "{geminiAnalysis}"
                     </div>
@@ -230,9 +232,14 @@ const App: React.FC = () => {
                 )}
               </div>
             ) : (
-              <div className="h-32 flex flex-col items-center justify-center text-gray-600 gap-2">
-                <ICONS.Lock />
-                <p className="text-xs uppercase tracking-widest font-bold italic">Waiting for Payment Proof...</p>
+              <div className="h-48 flex flex-col items-center justify-center text-gray-700 gap-4">
+                <div className="p-4 bg-white/5 rounded-full border border-white/5">
+                  <ICONS.Lock />
+                </div>
+                <div className="text-center">
+                  <p className="text-xs uppercase tracking-[0.2em] font-bold">Waiting for Preimage</p>
+                  <p className="text-[10px] mt-1 text-gray-800 uppercase font-mono tracking-tighter">402 Payment Required</p>
+                </div>
               </div>
             )}
           </div>
@@ -247,41 +254,42 @@ const App: React.FC = () => {
               logs={logs.filter(l => l.source === LogSource.AGENT || l.source === LogSource.WALLET)} 
             />
             <ConsoleLog 
-              title="L402 Proxy Logs" 
+              title="Gateway Proxy" 
               icon={<ICONS.Shield />} 
               logs={logs.filter(l => l.source === LogSource.SERVER)} 
             />
           </div>
 
           {/* Bolt11 / Transaction Details */}
-          <div className="bg-[#111] border border-white/10 rounded-xl p-4 md:p-6 shadow-lg">
-            <div className="flex justify-between items-center mb-4">
+          <div className="bg-[#111] border border-white/10 rounded-xl p-4 md:p-6 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 blur-[50px] group-hover:bg-orange-500/10 transition-colors" />
+            <div className="flex justify-between items-center mb-4 relative z-10">
                <h2 className="text-sm font-bold uppercase tracking-widest text-gray-500 flex items-center gap-2">
                 <ICONS.Zap /> Network Status
               </h2>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] font-bold text-green-500 uppercase">Lightning Node Online</span>
+                <span className="text-[10px] font-bold text-green-500 uppercase tracking-tighter">LN Node: ACTIVE</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mono">
-              <div className="p-3 bg-black/40 rounded border border-white/5">
-                <div className="text-gray-500 mb-1">Last Invoice</div>
-                <div className="truncate text-orange-300">
-                  {pendingInvoice ? pendingInvoice.bolt11 : '---'}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mono relative z-10">
+              <div className="p-3 bg-black/40 rounded border border-white/5 group-hover:border-white/10 transition-colors">
+                <div className="text-[10px] text-gray-600 mb-1 uppercase tracking-widest">Active Invoice</div>
+                <div className="truncate text-orange-300 font-mono">
+                  {pendingInvoice ? pendingInvoice.bolt11 : 'lnbc...'}
                 </div>
               </div>
-              <div className="p-3 bg-black/40 rounded border border-white/5">
-                <div className="text-gray-500 mb-1">Macaroon ID</div>
-                <div className="truncate text-purple-300">
-                  {pendingInvoice ? pendingInvoice.macaroon : '---'}
+              <div className="p-3 bg-black/40 rounded border border-white/5 group-hover:border-white/10 transition-colors">
+                <div className="text-[10px] text-gray-600 mb-1 uppercase tracking-widest">Macaroon ID</div>
+                <div className="truncate text-purple-300 font-mono">
+                  {pendingInvoice ? pendingInvoice.macaroon : 'base64...'}
                 </div>
               </div>
-              <div className="p-3 bg-black/40 rounded border border-white/5">
-                <div className="text-gray-500 mb-1">Preimage (Proof)</div>
-                <div className="truncate text-green-300">
-                  {agentState.hasAccess && pendingInvoice ? pendingInvoice.preimage : 'HIDDEN_UNTIL_PAID'}
+              <div className="p-3 bg-black/40 rounded border border-white/5 group-hover:border-white/10 transition-colors">
+                <div className="text-[10px] text-gray-600 mb-1 uppercase tracking-widest">Secret Preimage</div>
+                <div className="truncate text-green-400 font-bold font-mono">
+                  {agentState.hasAccess && pendingInvoice ? pendingInvoice.preimage : 'PENDING_PAYMENT'}
                 </div>
               </div>
             </div>
@@ -290,8 +298,8 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer Info */}
-      <footer className="text-center text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mt-auto pt-6 border-t border-white/5">
-        L402 Protocol Specification: Macaroons + LSAT + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club - Hackathon 2026
+      <footer className="text-center text-[9px] text-gray-600 uppercase tracking-[0.3em] font-bold mt-auto pt-8 border-t border-white/5">
+        L402 Protocol Specification: Macaroons + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club Hackathon - Feb 7, 2026
       </footer>
     </div>
   );
