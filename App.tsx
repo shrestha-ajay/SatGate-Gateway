@@ -16,7 +16,7 @@ const App: React.FC = () => {
   });
   const [pendingInvoice, setPendingInvoice] = useState<Invoice | null>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [geminiAnalysis, setGeminiAnalysis] = useState<string | null>(null);
+  const [geminiAnalysis, setGeminiAnalysis] = useState<string | null | undefined>(null);
 
   const addLog = useCallback((source: LogSource, message: string, type: 'info' | 'error' | 'success' | 'warning' = 'info') => {
     const newLog: LogEntry = {
