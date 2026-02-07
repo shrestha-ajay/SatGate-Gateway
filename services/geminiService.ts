@@ -1,11 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Safe access to process.env.API_KEY with a fallback to empty string to prevent crashes
-const apiKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) 
-  ? process.env.API_KEY 
-  : '';
-
-const ai = new GoogleGenAI({ apiKey: apiKey });
+// process.env.API_KEY is shimmed by vite.config.ts
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
 
 export const analyzeSecretData = async (data: string): Promise<string> => {
   try {

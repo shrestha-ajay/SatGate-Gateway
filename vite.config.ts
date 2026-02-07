@@ -1,14 +1,17 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // IMPORTANT: This must match your GitHub repository name
+  // Base must match the repository name for GitHub Pages
   base: '/SatGate-Gateway/',
   define: {
-    // Shims process.env to prevent ReferenceErrors in the browser
-    'process.env': {}
+    // This explicitly defines the process object for the browser
+    'process.env': {
+      API_KEY: JSON.stringify(process.env.API_KEY || '')
+    }
   },
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: './index.html',
