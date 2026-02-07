@@ -3,10 +3,12 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { LogEntry, LogSource, AgentState, Invoice } from './types';
 import { ICONS, INITIAL_BALANCE, API_COST, SECRET_DATA } from './constants';
 import ConsoleLog from './components/ConsoleLog';
+import PitchDeck from './components/PitchDeck';
 import { analyzeSecretData, getAgentReasoning } from './services/geminiService';
 
 const App: React.FC = () => {
   const [logs, setLogs] = useState<LogEntry[]>([]);
+  const [isPitchMode, setIsPitchMode] = useState<boolean>(true);
   const [agentState, setAgentState] = useState<AgentState>({
     balance: INITIAL_BALANCE,
     isProcessing: false,
@@ -16,7 +18,6 @@ const App: React.FC = () => {
   const [pendingInvoice, setPendingInvoice] = useState<Invoice | null>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
   const [geminiAnalysis, setGeminiAnalysis] = useState<string | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const addLog = useCallback((source: LogSource, message: string, type: 'info' | 'error' | 'success' | 'warning' = 'info') => {
     const newLog: LogEntry = {
@@ -112,6 +113,8 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col p-4 md:p-8 bg-[#0a0a0a] gap-6">
+      {isPitchMode && <PitchDeck onClose={() => setIsPitchMode(false)} />}
+      
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-6">
         <div>
@@ -121,7 +124,13 @@ const App: React.FC = () => {
           <p className="text-gray-400 mt-1">Autonomous Agent-to-Agent Payment Gateway Simulator</p>
         </div>
         
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
+          <button 
+            onClick={() => setIsPitchMode(true)}
+            className="px-4 py-2 hover:bg-orange-500/10 border border-orange-500/30 text-orange-500 rounded-lg transition-colors text-xs font-bold uppercase tracking-widest"
+          >
+            Show Pitch
+          </button>
           <div className="bg-[#111] border border-white/10 rounded-lg p-3 flex items-center gap-4">
             <div className="text-right">
               <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Agent Wallet Balance</div>
