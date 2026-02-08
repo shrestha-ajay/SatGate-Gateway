@@ -1,36 +1,24 @@
 import { GoogleGenAI } from "@google/genai";
 
 /**
- * Retrieves the API key safely from the environment.
- */
-const getApiKey = () => {
-  return process?.env?.API_KEY || (window as any).process?.env?.API_KEY;
-};
-
-/**
  * Analyzes the data retrieved from the L402 gateway.
+ * Uses gemini-3-flash-preview as recommended for general text analysis tasks.
  */
 export const analyzeSecretData = async (data: string): Promise<string> => {
   try {
-    const apiKey = getApiKey();
+    // Initializing exactly as specified in the SDK guidelines
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
-    if (!apiKey) {
-      console.error("Gemini API Key missing.");
-      return "Critical Error: Agent Intelligence Key (API_KEY) not found in environment. Please check your SatGate configuration.";
-    }
-
-    const ai = new GoogleGenAI({ apiKey });
-    
-    // Using the most direct model and prompt structure for high reliability
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: `You are an AI data agent. You just paid for this data via Bitcoin/L402. Analyze its significance: "${data}"`,
+      contents: `You are a professional data analyst. You have just unlocked a premium data payload via the L402 protocol. Provide a brief, insightful analysis of this data: "${data}"`,
     });
     
-    return response.text || "Data retrieved, but interpretation generated no signal.";
+    // Using the .text getter as per SDK guidelines
+    return response.text || "The analysis engine returned an empty result.";
   } catch (error) {
     console.error("Gemini analyzeSecretData Error:", error);
-    return "Intelligence processing timeout. The L402 gateway remains operational, but agent reasoning is currently offline.";
+    return "The agent successfully retrieved the data, but the interpretation layer encountered a processing error. The payload remains valid.";
   }
 };
 
@@ -39,14 +27,11 @@ export const analyzeSecretData = async (data: string): Promise<string> => {
  */
 export const getAgentReasoning = async (step: string): Promise<string> => {
   try {
-    const apiKey = getApiKey();
-    if (!apiKey) return "Initializing local heuristic reasoning...";
-
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: `Internal monologue for an AI agent at this step: "${step}"`,
+      contents: `Act as an AI agent processing an L402 payment. Give a very short (one sentence) internal thought about this step: "${step}"`,
     });
     
     return response.text ?? "Verifying cryptographic proof of payment...";
