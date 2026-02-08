@@ -34,7 +34,7 @@ const slides: Slide[] = [
             </p>
           </div>
           
-          <div className="text-gray-600 font-mono text-[9px]">February 7, 2026</div>
+          <div className="text-gray-600 font-mono text-[9px]">February 8, 2026</div>
         </div>
       </div>
     )
