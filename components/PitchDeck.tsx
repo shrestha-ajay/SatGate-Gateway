@@ -52,7 +52,7 @@ const slides: Slide[] = [
           </div>
           <div className="p-6 bg-red-500/10 border border-red-500/20 rounded-2xl">
             <h4 className="font-bold text-red-400 mb-2 uppercase text-[10px] tracking-widest">Identity Silos</h4>
-            <p className="text-gray-300 text-sm leading-relaxed">Current API gateways require KYC and centralized accounts. The agentic web needs anonymous, cryptographic payment proof.</p>
+            <p className="text-gray-300 text-sm leading-relaxed">Current API gateways require legacy-heavy banking interface and centralized accounts. The agentic web needs anonymous, cryptographic payment proof.</p>
           </div>
         </div>
         <div className="text-center md:text-left space-y-6">
