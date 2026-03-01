@@ -1,5 +1,5 @@
 {
-  "name": "SatGate - L402 AI Agent Gateway",
+  "name": "SatGateway - L402 AI Agent Gateway",
   "description": "An interactive simulator for the L402 protocol, allowing AI agents to pay for API access using Bitcoin Lightning Network (Sats). Features real-time log visualization, a simulated Lightning wallet, and Gemini-powered agent reasoning.",
   "requestFramePermissions": []
 }

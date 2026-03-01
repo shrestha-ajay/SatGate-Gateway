@@ -24,4 +24,4 @@ export const ICONS = {
 
 export const INITIAL_BALANCE = 5000; // Sats
 export const API_COST = 250; // Sats
-export const SECRET_DATA = "PREMIUM_ALPHA_v1: The next Bitcoin halving narrative involves Layer 2 scaling protocols like SatGate. Target Coordinates: 41.3083° N, 72.9279° W";
+export const SECRET_DATA = "PREMIUM_ALPHA_v1: The next Bitcoin halving narrative involves Layer 2 scaling protocols like SatGateway. Target Coordinates: 41.3083° N, 72.9279° W";

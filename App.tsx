@@ -119,7 +119,7 @@ const App: React.FC = () => {
         <div className="flex flex-col">
           <div className="flex items-center gap-3 mb-1">
             <h1 className="text-4xl font-black tracking-tighter text-white flex items-center gap-2">
-              <span className="text-orange-500"><ICONS.Zap /></span> SatGate
+              <span className="text-orange-500"><ICONS.Zap /></span> SatGateway
             </h1>
             <div className="px-2 py-0.5 bg-orange-500/10 border border-orange-500/30 rounded text-[10px] text-orange-400 font-black uppercase tracking-[0.2em]">
               Yale Blockchain Club Hackathon
@@ -299,7 +299,7 @@ const App: React.FC = () => {
 
       {/* Footer Info */}
       <footer className="text-center text-[9px] text-gray-700 uppercase tracking-[0.4em] font-black mt-auto pt-10 border-t border-white/5">
-        L402 Protocol Specification: Macaroons + Lightning • SatGate Open Infrastructure • Build on Bitcoin - Yale Blockchain Club Hackathon - Feb 7, 2026
+        L402 Protocol Specification: Macaroons + Lightning • SatGateway Open Infrastructure • Build on Bitcoin - Yale Blockchain Club Hackathon - Feb 7, 2026
       </footer>
     </div>
   );

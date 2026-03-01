@@ -1,6 +1,6 @@
-# ⚡ SatGate - L402 AI Agent Gateway
+# ⚡ SatGateway - L402 AI Agent Gateway
 
-SatGate is an interactive simulator for the **L402 protocol**, enabling autonomous AI agents to pay for API access using the **Bitcoin Lightning Network**.
+SatGateway is an interactive simulator for the **L402 protocol**, enabling autonomous AI agents to pay for API access using the **Bitcoin Lightning Network**.
 
 ## 🚀 How to Deploy to GitHub Pages
 
@@ -15,7 +15,7 @@ npm install
 ### 2. Configure the Base Path
 Open `vite.config.ts` and ensure the `base` property matches your repository name:
 ```ts
-base: '/SatGate-Gateway/',
+base: '/SatGateway-Gateway/',
 ```
 
 ### 3. Deploy
@@ -30,7 +30,7 @@ npm run deploy
 3. Under **Build and deployment > Branch**, select **`gh-pages`** (it will appear after you run step 3) and the `/ (root)` folder.
 4. Click **Save**.
 
-Your site will be live at `https://shrestha-ajay.github.io/SatGate-Gateway/` shortly!
+Your site will be live at `https://shrestha-ajay.github.io/SatGateway-Gateway/` shortly!
 
 ## 🛠 Features
 - **Interactive Pitch Deck**: A built-in presentation mode.

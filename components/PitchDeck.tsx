@@ -10,7 +10,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    title: "SatGate",
+    title: "SatGateway",
     subtitle: "Monetizing the Agentic Web with L402",
     icon: <ICONS.Zap />,
     content: (
@@ -86,7 +86,7 @@ const slides: Slide[] = [
           </div>
         </div>
         <div className="p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl text-center text-xs font-black text-orange-200 uppercase tracking-widest">
-          SatGate is the gateway to the Agentic Economy.
+          SatGateway is the gateway to the Agentic Economy.
         </div>
       </div>
     )
@@ -171,7 +171,7 @@ const slides: Slide[] = [
         </div>
         <div className="text-center space-y-4 pt-4">
           <div className="text-gray-600 font-black tracking-[0.4em] text-[10px] uppercase">Bitcoin is the Native Language of Value</div>
-          <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">SATGATE: START THE DEMO</div>
+          <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">SATGATEWAY: START THE DEMO</div>
         </div>
       </div>
     )
@@ -207,7 +207,7 @@ const PitchDeck: React.FC<PitchDeckProps> = ({ onClose }) => {
       <div className="sticky top-0 z-10 p-4 md:p-6 flex justify-between items-center border-b border-white/10 bg-[#0a0a0a]/90 backdrop-blur-md">
         <div className="flex items-center gap-3">
           <span className="text-orange-500"><ICONS.Zap /></span>
-          <span className="font-black tracking-tighter text-xl text-white">SatGate</span>
+          <span className="font-black tracking-tighter text-xl text-white">SatGateway</span>
         </div>
         <div className="flex gap-2">
            {slides.map((_, i) => (
