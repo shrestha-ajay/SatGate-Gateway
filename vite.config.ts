@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Base must match the repository name for GitHub Pages
-  base: '/SatGateway-Gateway/',
+  base: '/SatGate-Gateway/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
